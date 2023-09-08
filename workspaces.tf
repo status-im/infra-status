@@ -12,6 +12,7 @@ locals {
       /* Default settings for all fleets/workspaces. */
 
       boot_hosts_count = 2
+      store_hosts_count = 2
 
       do_type = "s-1vcpu-2gb" /* DigitalOcean */
       ac_type = "ecs.t5-lc1m2.small" /* Alibaba Cloud */

@@ -17,12 +17,10 @@
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  version: 4d7c9c606f5e039a22c34ba93961d05056c0e002
   scm: git
 
 - name: systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  version: 24b9f3c82b0f2cc89211e40b0abce07e983e67c1
   scm: git
 
 - name: nim-waku
