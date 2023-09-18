@@ -1,0 +1,60 @@
+---
+# Custom SSH accounts for Shards fleet, should start from UID 8000.
+
+# Tag dependent on fleet: test
+nim_waku_cont_tag: 'deploy-shards-{{ stage }}'
+nim_waku_cont_name: 'nim-waku-boot'
+# TODO: switch for traces foe 1 node in host_vars
+nim_waku_log_level: 'debug'
+nim_waku_protocols_enabled: ['relay', 'filter', 'lightpush', 'peer-exchange']
+nim_waku_disc_v5_enabled: true
+nim_waku_dns4_domain_name: '{{ dns_entry }}'
+nim_waku_node_key: '{{lookup("bitwarden", "fleets/shards/"+stage+"/nodekeys", field=hostname)}}'
+
+# Topic configuration
+nim_waku_pubsub_topics:
+  - '/waku/2/rs/16/128'
+  - '/waku/2/rs/16/256'
+
+nim_waku_protected_topics:
+  - '/waku/2/rs/16/128:045ced3b90fabf7673c5165f9cc3a038fd2cfeb96946538089c310b5eaa3a611094b27d8216d9ec8110bd0e0e9fa7a7b5a66e86a27954c9d88ebd41d0ab6cfbb91'
+  - '/waku/2/rs/16/256:049022b33f7583f34463f5b7622e5da29f99f993e6858a478465c68ee114ccf142204eff285ed922349c4b71b178a2e1a2154b99bcc2d8e91b3994626ffa9f1a6c'
+
+# Ports
+nim_waku_p2p_tcp_port: 30303
+nim_waku_p2p_udp_port: 30303
+nim_waku_metrics_port: 8008
+nim_waku_disc_v5_port: 9000
+nim_waku_rpc_tcp_port: 8545
+
+# Limits
+nim_waku_p2p_max_connections: 300
+
+# Store
+nim_waku_store_message_retention_policy: 'time:2592000' # 30 days
+
+# DNS Discovery
+# TODO: enable DNS discovery
+nim_waku_dns_disc_enabled: false
+#nim_waku_dns_disc_url: 'enrtree://AOGECG2SPND25EEFMAJ5WF3KSGJNSGV356DSTL2YVLLZWIV6SAYBM@{{ stage }}.nodes.status.im'
+
+# Enable WebSockets via Websockify
+nim_waku_websockify_enabled: false
+
+# Enable websockets in Waku
+nim_waku_websocket_enabled: false
+
+# Consul Service
+nim_waku_consul_success_before_passing: 5
+nim_waku_consul_failures_before_warning: 2
+nim_waku_consul_failures_before_critical: 20
+
+# Open LibP2P Ports
+open_ports_default_comment: '{{ nim_waku_cont_name }}'
+open_ports_default_chain: 'SERVICES'
+open_ports_default_protocol: 'tcp'
+open_ports_list:
+  - { port: '{{ nim_waku_p2p_udp_port }}', protocol: 'udp' }
+  - { port: '{{ nim_waku_p2p_tcp_port }}' }
+  - { port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
+  - { port: '{{ nim_waku_metrics_port }}', chain: 'VPN', ipset: 'metrics.hq' }
