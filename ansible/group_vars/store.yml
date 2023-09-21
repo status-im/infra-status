@@ -33,9 +33,8 @@ nim_waku_p2p_max_connections: 300
 nim_waku_store_message_retention_policy: 'time:2592000' # 30 days
 
 # DNS Discovery
-# TODO: enable DNS discovery
-nim_waku_dns_disc_enabled: false
-#nim_waku_dns_disc_url: 'enrtree://AOGECG2SPND25EEFMAJ5WF3KSGJNSGV356DSTL2YVLLZWIV6SAYBM@{{ stage }}.nodes.status.im'
+nim_waku_dns_disc_enabled: true
+nim_waku_dns_disc_url: 'enrtree://AOGECG2SPND25EEFMAJ5WF3KSGJNSGV356DSTL2YVLLZWIV6SAYBM@boot.{{ stage }}.shards.nodes.status.im'
 
 # Enable WebSockets via Websockify
 nim_waku_websockify_enabled: false
