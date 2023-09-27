@@ -11,14 +11,12 @@ locals {
     defaults = {
       /* Default settings for all fleets/workspaces. */
 
-      boot_hosts_count = 2
+      boot_hosts_count = 1
       store_hosts_count = 2
 
       do_type = "s-1vcpu-2gb" /* DigitalOcean */
       ac_type = "ecs.t5-lc1m2.small" /* Alibaba Cloud */
       gc_type = "g1-small" /* Google Cloud */
-
-      data_vol_size = 40
     }
 
     test = {
