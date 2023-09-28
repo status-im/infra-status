@@ -21,7 +21,6 @@ nim_waku_protected_topics:
 
 # Ports
 nim_waku_p2p_tcp_port: 30303
-nim_waku_p2p_udp_port: 30303
 nim_waku_metrics_port: 8008
 nim_waku_disc_v5_port: 9000
 nim_waku_rpc_tcp_port: 8545
@@ -56,7 +55,6 @@ open_ports_default_comment: '{{ nim_waku_cont_name }}'
 open_ports_default_chain: 'SERVICES'
 open_ports_default_protocol: 'tcp'
 open_ports_list:
-  - { port: '{{ nim_waku_p2p_udp_port }}', protocol: 'udp' }
   - { port: '{{ nim_waku_p2p_tcp_port }}' }
   - { port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
   - { port: '{{ nim_waku_metrics_port }}', chain: 'VPN', ipset: 'metrics.hq' }
