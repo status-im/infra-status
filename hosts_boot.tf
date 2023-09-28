@@ -17,6 +17,9 @@ module "boot" {
   gc_type = local.ws["gc_type"] /* Google Cloud */
 
   /* firewall */
+  open_tcp_ports = [
+    "30303", /* p2p main */
+  ]
   open_udp_ports = [
     "9000", /* discovery v5 */
   ]
