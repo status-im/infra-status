@@ -37,7 +37,9 @@ nim_waku_store_message_retention_policy: 'time:2592000' # 30 days
 
 # DNS Discovery
 nim_waku_dns_disc_enabled: true
-nim_waku_dns_disc_url: 'enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.{{ stage }}.shards.nodes.status.im'
+nim_waku_dns_disc_url_map:
+  test: 'enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.shards.nodes.status.im'
+nim_waku_dns_disc_url: '{{ nim_waku_dns_disc_url_map[stage] }}'
 
 # Enable WebSockets via Websockify
 nim_waku_websockify_enabled: false
