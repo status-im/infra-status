@@ -13,12 +13,16 @@ store-01.gc-us-central1-a.shards.test hostname=store-01.gc-us-central1-a.shards.
 store-02.ac-cn-hongkong-c.shards.test hostname=store-02.ac-cn-hongkong-c.shards.test ansible_host=8.218.121.232 env=shards stage=test data_center=ac-cn-hongkong-c region=cn-hongkong-c dns_entry=store-02.ac-cn-hongkong-c.shards.test.statusim.net
 store-02.do-ams3.shards.test hostname=store-02.do-ams3.shards.test ansible_host=159.223.242.154 env=shards stage=test data_center=do-ams3 region=ams3 dns_entry=store-02.do-ams3.shards.test.statusim.net
 store-02.gc-us-central1-a.shards.test hostname=store-02.gc-us-central1-a.shards.test ansible_host=34.170.154.2 env=shards stage=test data_center=gc-us-central1-a region=us-central1-a dns_entry=store-02.gc-us-central1-a.shards.test.statusim.net
+store-db-01.ac-cn-hongkong-c.shards.test hostname=store-db-01.ac-cn-hongkong-c.shards.test ansible_host=47.243.139.240 env=shards stage=test data_center=ac-cn-hongkong-c region=cn-hongkong-c dns_entry=store-db-01.ac-cn-hongkong-c.shards.test.statusim.net
+store-db-01.do-ams3.shards.test hostname=store-db-01.do-ams3.shards.test ansible_host=161.35.247.243 env=shards stage=test data_center=do-ams3 region=ams3 dns_entry=store-db-01.do-ams3.shards.test.statusim.net
+store-db-01.gc-us-central1-a.shards.test hostname=store-db-01.gc-us-central1-a.shards.test ansible_host=34.71.57.210 env=shards stage=test data_center=gc-us-central1-a region=us-central1-a dns_entry=store-db-01.gc-us-central1-a.shards.test.statusim.net
 
 [ac-cn-hongkong-c]
 boot-01.ac-cn-hongkong-c.shards.test
 boot-02.ac-cn-hongkong-c.shards.test
 store-01.ac-cn-hongkong-c.shards.test
 store-02.ac-cn-hongkong-c.shards.test
+store-db-01.ac-cn-hongkong-c.shards.test
 
 [boot]
 boot-01.ac-cn-hongkong-c.shards.test
@@ -33,12 +37,14 @@ boot-01.do-ams3.shards.test
 boot-02.do-ams3.shards.test
 store-01.do-ams3.shards.test
 store-02.do-ams3.shards.test
+store-db-01.do-ams3.shards.test
 
 [gc-us-central1-a]
 boot-01.gc-us-central1-a.shards.test
 boot-02.gc-us-central1-a.shards.test
 store-01.gc-us-central1-a.shards.test
 store-02.gc-us-central1-a.shards.test
+store-db-01.gc-us-central1-a.shards.test
 
 [shards.test]
 boot-01.ac-cn-hongkong-c.shards.test
@@ -53,6 +59,9 @@ store-01.gc-us-central1-a.shards.test
 store-02.ac-cn-hongkong-c.shards.test
 store-02.do-ams3.shards.test
 store-02.gc-us-central1-a.shards.test
+store-db-01.ac-cn-hongkong-c.shards.test
+store-db-01.do-ams3.shards.test
+store-db-01.gc-us-central1-a.shards.test
 
 [store]
 store-01.ac-cn-hongkong-c.shards.test
@@ -62,3 +71,7 @@ store-02.ac-cn-hongkong-c.shards.test
 store-02.do-ams3.shards.test
 store-02.gc-us-central1-a.shards.test
 
+[store-db]
+store-db-01.ac-cn-hongkong-c.shards.test
+store-db-01.do-ams3.shards.test
+store-db-01.gc-us-central1-a.shards.test
