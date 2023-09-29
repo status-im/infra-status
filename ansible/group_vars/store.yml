@@ -30,6 +30,10 @@ nim_waku_rpc_tcp_port: 8545
 nim_waku_p2p_max_connections: 300
 
 # Store
+nim_waku_store_message_db_name: 'nim-waku'
+nim_waku_store_message_db_user: 'nim-waku'
+nim_waku_store_message_db_pass: '{{lookup("bitwarden", "fleets/shards/"+stage+"/db/nim-waku")}}'
+nim_waku_store_message_db_url: 'postgres://{{ nim_waku_store_message_db_user}}:{{ nim_waku_store_message_db_pass}}@store-db-01.{{ ansible_domain }}.wg:5432/{{nim_waku_store_message_db_name}}'
 nim_waku_store_message_retention_policy: 'time:2592000' # 30 days
 
 # DNS Discovery

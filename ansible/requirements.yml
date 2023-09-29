@@ -25,6 +25,9 @@
 
 - name: nim-waku
   src: git@github.com:status-im/infra-role-nim-waku.git
-  # TODO: update hash and find a working image to support topic argument change
-  version: 8044c33ffb92b3ee73cba677a090330ff638b70c
+  version: 5a96779773b1b5e1d34dd3be6e1a280151184447
+  scm: git
+
+- name: infra-role-postgres-ha
+  src: git@github.com:status-im/infra-role-postgres-ha.git
   scm: git

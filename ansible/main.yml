@@ -22,3 +22,10 @@
         - { role: open-ports,       tags: open-ports }
         - { role: swap-file,        tags: swap-file  }
         - { role: nim-waku,         tags: nim-waku   }
+
+- name: Configure Waku Storage DB Nodes
+  hosts: store-db
+  roles:
+        - { role: open-ports,             tags: open-ports }
+        - { role: swap-file,              tags: swap-file  }
+        - { role: infra-role-postgres-ha, tags: postgres-ha    }
