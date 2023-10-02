@@ -1,22 +1,14 @@
 # Description
+This repo defines infrastructure for running [nim-waku](github.com/status-im/nim-waku) nodes shards.
 
-### :warning: Replace with actual description!
+There are 3 kinds of nodes:
+- `boot` - bootstrap nodes, no storage
+- `store` - messages store nodes
+- `store-db` - PostgreSQL used by `store` nodes for storage
 
->This repo defines a standard template for new Status infrastructure repositories.
->
->Key things to change:
->
->- Update `README.md`
->- Terraform
->    - Change `path` in `main.tf` to match new fleet
->    - Add necessary providers in `providers.tf`
->    - Add necessary secrets in `secrets.tf`
->    - Adjust or remove `workspaces.tf`
->    - Adjust `versions.tf`
->- Ansible
->    - Extend `ansible/group_vars/all.yml`
->    - Or add a dedicated `group_vars` file
->    - Create the `ansible/main.yml` playbook
+# Continious Integration
+Jenkins CI builds can be used to build and deploy new Docker images:
+- `shards.test`: https://ci.infra.status.im/job/nim-waku/job/deploy-shards-test/
 
 # Repo Usage
 
