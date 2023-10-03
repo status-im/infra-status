@@ -3,8 +3,17 @@ This repo defines infrastructure for running [nim-waku](github.com/status-im/nim
 
 There are 3 kinds of nodes:
 - `boot` - bootstrap nodes, no storage
+  - `enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.shards.nodes.status.im`
 - `store` - messages store nodes
+  - `enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@store.test.shards.nodes.status.im`
 - `store-db` - PostgreSQL used by `store` nodes for storage
+
+# Address
+
+| Fleet | enrtree                                                                                           |
+| ----- | ------------------------------------------------------------------------------------------------- |
+| boot  | enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.shards.nodes.status.im  |
+| store | enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@store.test.shards.nodes.status.im |
 
 # Continious Integration
 Jenkins CI builds can be used to build and deploy new Docker images:
