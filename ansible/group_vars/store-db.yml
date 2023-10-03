@@ -1,4 +1,7 @@
 ---
+# Custom SSH accounts, should start from UID 8000.
+bootstrap__active_extra_users:
+  - { name: ivan,    uid: 8000, groups: ['docker', 'dockremap'], key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJBdm8y1PfWjT1pioaWJSZ2ETrUySb+dS/ifDg+VIpLY ivansete@status.im' }
 
 postgres_ha_service_name: 'nim-waku-store-db'
 postgres_ha_cont_image: 'postgres:15.1-alpine'
