@@ -9,15 +9,10 @@
     - local_action: command ./versioncheck.py
       changed_when: false
 
-- name: Configure Waku Bootstrap Nodes
-  hosts: boot
-  roles:
-        - { role: open-ports,       tags: open-ports }
-        - { role: swap-file,        tags: swap-file  }
-        - { role: nim-waku,         tags: nim-waku   }
-
-- name: Configure Waku Storage Nodes
-  hosts: store
+- name: Configure Waku Bootstrap and Storage Nodes
+  hosts:
+    - boot
+    - store
   roles:
         - { role: open-ports,       tags: open-ports }
         - { role: swap-file,        tags: swap-file  }
