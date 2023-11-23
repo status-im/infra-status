@@ -6,7 +6,7 @@ bootstrap__active_extra_users:
 # Tag dependent on fleet: test
 nim_waku_cont_tag: 'deploy-shards-{{ stage }}'
 nim_waku_cont_name: 'nim-waku-boot'
-nim_waku_log_level: "{{ 'trace' if ansible_hostname == 'boot-01' else 'debug' }}"
+nim_waku_log_level: 'debug'
 nim_waku_protocols_enabled: ['relay', 'filter', 'lightpush', 'peer-exchange']
 nim_waku_disc_v5_enabled: true
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
