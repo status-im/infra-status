@@ -25,10 +25,10 @@
 
 - name: nim-waku
   src: git@github.com:status-im/infra-role-nim-waku.git
-  version: 471d21c00e694268970afdab20844bf1854e3221
+  version: 304caa5d6af127042186380168e39d315cbb61a4
   scm: git
 
 - name: infra-role-postgres-ha
   src: git@github.com:status-im/infra-role-postgres-ha.git
-  version: 97f525e9053f7e314bfcceceed22581c4ec904cd
+  version: c647a9f57deb791f1be724fe768be7bc9bf64921
   scm: git
