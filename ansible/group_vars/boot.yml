@@ -60,7 +60,8 @@ nim_waku_consul_failures_before_critical: 20
 # LetsEncrypt via Certbot
 certbot_docker_enabled: true
 certbot_admin_email: 'devops@status.im'
-certbot_containers_to_stop: ['websockify']
+certbot_containers_to_stop: ['{{ nim_waku_cont_name }}']
+certbot_services_to_stop: []
 certbot_certs:
   - domains: [ '{{ nim_waku_websocket_domain }}' ]
 
