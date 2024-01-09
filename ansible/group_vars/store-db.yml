@@ -14,8 +14,8 @@ postgres_ha_admin_user: 'postgres'
 postgres_ha_admin_pass: '{{lookup("bitwarden", "fleets/shards/"+stage+"/db/admin")}}'
 
 # Disable backups since we have multiple DCs
-postgres_ha_backup: true
-postgres_ha_backup_enabled: true
+postgres_ha_backup: false
+postgres_ha_backup_enabled: false
 
 postgres_ha_databases:
   - name: 'nim-waku'
