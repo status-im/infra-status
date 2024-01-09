@@ -22,6 +22,12 @@ postgres_ha_databases:
     user: 'nim-waku'
     pass: '{{lookup("bitwarden", "fleets/shards/"+stage+"/db/nim-waku")}}'
 
+# Avoid exceeding volume size with WAL log.
+postgres_alter_system_settings:
+  checkpoint_timeout: '5min'
+  max_wal_size: '1GB'
+  min_wal_size: '80MB'
+
 # Open PostgreSQL Port
 open_ports_default_comment: '{{ postgres_ha_service_name }}'
 open_ports_default_chain: 'SERVICES'
