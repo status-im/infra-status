@@ -14,7 +14,7 @@ locals {
       boot_hosts_count = 1
       store_hosts_count = 2
       store_db_hosts_count = 1
-      store_db_data_vol_size = 40
+      store_db_data_vol_size = 100
 
       do_type = "s-1vcpu-2gb" /* DigitalOcean */
       ac_type = "ecs.t5-lc1m2.small" /* Alibaba Cloud */
