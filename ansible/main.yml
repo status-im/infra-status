@@ -10,6 +10,7 @@
       changed_when: false
 
 - name: Configure Waku Bootstrap and Storage Nodes
+  serial: '{{ serial|default(1) }}'
   hosts:
     - boot
     - store
@@ -20,6 +21,7 @@
         - { role: nim-waku,         tags: nim-waku   }
 
 - name: Configure Waku Storage DB Nodes
+  serial: '{{ serial|default(1) }}'
   hosts: store-db
   roles:
         - { role: open-ports,             tags: open-ports }
