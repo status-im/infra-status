@@ -4,7 +4,8 @@ bootstrap__active_extra_users:
   - { name: ivan,    uid: 8000, groups: ['docker', 'dockremap'], key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJBdm8y1PfWjT1pioaWJSZ2ETrUySb+dS/ifDg+VIpLY ivansete@status.im' }
 
 # Tag dependent on fleet: test
-nim_waku_cont_tag: 'deploy-shards-{{ stage }}'
+#nim_waku_cont_tag: 'deploy-shards-{{ stage }}'
+nim_waku_cont_tag: 'v0.24.0'
 nim_waku_cont_name: 'nim-waku-store'
 nim_waku_log_level: 'debug'
 nim_waku_protocols_enabled: ['relay', 'store']

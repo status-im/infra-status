@@ -1,0 +1,3 @@
+---
+# Allow Waku team debug connection issues with 0.25.0.
+nim_waku_cont_tag: 'v0.25.0'
