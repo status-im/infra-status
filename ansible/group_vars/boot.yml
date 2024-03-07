@@ -7,6 +7,8 @@ bootstrap__active_extra_users:
 #nim_waku_cont_tag: 'deploy-shards-{{ stage }}'
 nim_waku_cont_tag: 'v0.24.0'
 nim_waku_cont_name: 'nim-waku-boot'
+nim_waku_cont_vol: '/docker/{{ nim_waku_cont_name }}'
+nim_waku_node_conf_path: '{{ nim_waku_cont_vol }}/conf'
 nim_waku_log_level: 'debug'
 nim_waku_protocols_enabled: ['relay', 'filter', 'lightpush', 'peer-exchange']
 nim_waku_disc_v5_enabled: true
@@ -46,9 +48,6 @@ nim_waku_dns_disc_url_map:
   test: 'enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.shards.nodes.status.im'
 nim_waku_dns_disc_url: '{{ nim_waku_dns_disc_url_map[stage] }}'
 
-# Enable WebSockets via Websockify
-nim_waku_websockify_enabled: false
-
 # Websockets
 nim_waku_websocket_enabled: true
 nim_waku_websocket_secure_enabled: true
@@ -65,6 +64,7 @@ nim_waku_consul_failures_before_critical: 20
 # LetsEncrypt via Certbot
 certbot_docker_enabled: true
 certbot_admin_email: 'devops@status.im'
+certbot_services_to_stop: ['nginx']
 certbot_containers_to_stop: ['{{ nim_waku_cont_name }}']
 certbot_certs:
   - domains: [ '{{ nim_waku_websocket_domain }}' ]
@@ -74,8 +74,21 @@ open_ports_default_comment: '{{ nim_waku_cont_name }}'
 open_ports_default_chain: 'SERVICES'
 open_ports_default_protocol: 'tcp'
 open_ports_list:
-  - { port: '80', comment: 'Certbot verification' }
+  - { port: '80', comment: 'Nginx and Certbot' }
   - { port: '{{ nim_waku_p2p_tcp_port }}' }
   - { port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
   - { port: '{{ nim_waku_metrics_port }}', chain: 'VPN', ipset: 'metrics.hq' }
   - { port: '{{ nim_waku_websock_port }}' }
+
+# Public Config file access
+nginx_sites:
+  nim_waku_config:
+    - listen 80 default_server
+    - location = / {
+        return 302 /config.toml;
+      }
+    - location = /config.toml {
+        root {{ nim_waku_node_conf_path }};
+        try_files /config.toml =404;
+        types { text/plain toml; }
+      }
