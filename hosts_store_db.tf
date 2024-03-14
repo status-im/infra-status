@@ -6,7 +6,6 @@ module "store-db" {
   group  = "store-db"
   env    = "shards"
   stage  = terraform.workspace
-  domain = var.domain
 
   /* scaling */
   host_count = local.ws["store_db_hosts_count"]

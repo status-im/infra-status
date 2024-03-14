@@ -6,7 +6,6 @@ module "boot" {
   group  = "boot"
   env    = "shards"
   stage  = terraform.workspace
-  domain = var.domain
 
   /* scaling */
   host_count = local.ws["boot_hosts_count"]
