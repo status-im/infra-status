@@ -25,7 +25,7 @@
 
 - name: nim-waku
   src: git@github.com:status-im/infra-role-nim-waku.git
-  version: 468ee1af0e0bb6b0c9167f1696e3a6cb73eeed79
+  version: 2eaeb82a0c5aae2b80e46a7c3965809f15d9b2cc
   scm: git
 
 - name: infra-role-certbot
