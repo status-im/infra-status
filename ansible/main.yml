@@ -15,16 +15,16 @@
     - boot
     - store
   roles:
-        - { role: open-ports,       tags: open-ports }
-        - { role: swap-file,        tags: swap-file  }
-        - { role: certbot,          tags: certbot    }
-        - { role: nim-waku,         tags: nim-waku   }
-        - { role: nginx,            tags: nginx      }
+    - { role: infra-role-open-ports,   tags: open-ports  }
+    - { role: infra-role-swap-file,    tags: swap-file   }
+    - { role: infra-role-certbot,      tags: certbot     }
+    - { role: infra-role-nim-waku,     tags: nim-waku    }
+    - { role: infra-role-nginx,        tags: nginx       }
 
 - name: Configure Waku Storage DB Nodes
   serial: '{{ serial|default(1) }}'
   hosts: store-db
   roles:
-        - { role: open-ports,             tags: open-ports }
-        - { role: swap-file,              tags: swap-file  }
-        - { role: infra-role-postgres-ha, tags: postgres-ha    }
+    - { role: infra-role-open-ports,   tags: open-ports  }
+    - { role: infra-role-swap-file,    tags: swap-file   }
+    - { role: infra-role-postgres-ha,  tags: postgres-ha }
