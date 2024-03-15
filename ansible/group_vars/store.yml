@@ -72,7 +72,9 @@ certbot_admin_email: 'devops@status.im'
 certbot_services_to_stop: ['nginx']
 certbot_containers_to_stop: ['{{ nim_waku_cont_name }}']
 certbot_certs:
-  - domains: [ '{{ nim_waku_websocket_domain }}' ]
+  - domains:
+      - '{{ nim_waku_websocket_domain }}'
+      - '{{ nim_waku_websocket_domain | replace("status.im", "statusim.net") }}' # Legacy Domain
 
 # Open LibP2P Ports
 open_ports_default_comment: '{{ nim_waku_cont_name }}'

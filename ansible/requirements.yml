@@ -30,7 +30,7 @@
 
 - name: infra-role-certbot
   src: git@github.com:status-im/infra-role-certbot.git
-  version: c7a5afe6a7d76f7c021041ec1e7df4f7e46cf374
+  version: fdf310513b2dc731f30861ed8a5957b54b4422f7
   scm: git
 
 - name: infra-role-postgres-ha
