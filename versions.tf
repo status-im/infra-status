@@ -3,11 +3,6 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = " = 3.26.0"
-    }
-    pass = {
-      source  = "camptocamp/pass"
-      version = " = 2.0.0"
     }
     digitalocean = {
       source = "digitalocean/digitalocean"
@@ -17,6 +12,10 @@ terraform {
     }
     google = {
       source = "hashicorp/google"
+    }
+    pass = {
+      source  = "camptocamp/pass"
+      version = " = 2.0.0"
     }
   }
 }
