@@ -24,6 +24,9 @@ locals {
     test = {
       /* Settings specific to the test fleet/workspace. */
     }
+    staging = {
+      /* Settings specific to the test fleet/workspace. */
+    }
   }
 }
 
