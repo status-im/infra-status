@@ -23,6 +23,7 @@ locals {
 
     test = {
       /* Settings specific to the test fleet/workspace. */
+      store_db_data_vol_size = 150
     }
     staging = {
       /* Settings specific to the test fleet/workspace. */
