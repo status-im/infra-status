@@ -33,9 +33,10 @@ class Role:
         return str(cmd.stdout.strip(), 'utf-8')
 
 
-# Verify Ansible version is 2.8 or newer.
-if version.parse(ansible.__version__) < version.parse("2.8"):
-    print('Your Ansible version is lower than 2.8. Upgrade it.')
+# Verify Ansible version is 2.16 or newer.
+ansible_required = '2.16'
+if version.parse(ansible.__version__) < version.parse(ansible_required):
+    print('Your Ansible version is lower than %s. Upgrade it.' % ansible_required)
     exit(1)
 
 # Read Ansible requirements file.
