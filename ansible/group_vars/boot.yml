@@ -3,6 +3,7 @@
 bootstrap__active_extra_users:
   - { name: ivan,    uid: 8000, groups: ['docker', 'dockremap'], key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJBdm8y1PfWjT1pioaWJSZ2ETrUySb+dS/ifDg+VIpLY ivansete@status.im' }
 
+# Hourly rotation to avoid disk space issue 
 bootstrap__logrotate_frequency: 'hourly'
 
 # Tag dependent on fleet: test
