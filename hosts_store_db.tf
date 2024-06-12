@@ -11,9 +11,9 @@ module "store-db" {
   host_count = local.ws["store_db_hosts_count"]
 
   /* instance sizes */
-  do_type = local.ws["do_type"] /* DigitalOcean */
-  ac_type = local.ws["ac_type"] /* Alibaba Cloud */
-  gc_type = local.ws["gc_type"] /* Google Cloud */
+  do_type = local.ws["db_do_type"] /* DigitalOcean */
+  ac_type = local.ws["db_ac_type"] /* Alibaba Cloud */
+  gc_type = local.ws["db_gc_type"] /* Google Cloud */
 
   /* data volumes */
   ac_data_vol_size = local.ws["store_db_data_vol_size"]
