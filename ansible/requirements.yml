@@ -1,39 +1,29 @@
----
 - name: infra-role-bootstrap-linux
   src: git@github.com:status-im/infra-role-bootstrap-linux.git
-  scm: git
 
 - name: infra-role-wireguard
   src: git@github.com:status-im/infra-role-wireguard.git
-  scm: git
 
 - name: infra-role-open-ports
   src: git@github.com:status-im/infra-role-open-ports.git
-  scm: git
 
 - name: infra-role-swap-file
   src: git@github.com:status-im/infra-role-swap-file.git
-  scm: git
 
 - name: infra-role-consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
-  scm: git
 
 - name: infra-role-systemd-timer
   src: git@github.com:status-im/infra-role-systemd-timer.git
-  scm: git
 
 - name: infra-role-nim-waku
   src: git@github.com:status-im/infra-role-nim-waku.git
   version: 0948fc8aa6c5738ca963d7faac2b203645d22afd
-  scm: git
 
 - name: infra-role-certbot
   src: git@github.com:status-im/infra-role-certbot.git
   version: 17986a809058ce17ef45300365b268f3ed33a00a
-  scm: git
 
 - name: infra-role-postgres-ha
   src: git@github.com:status-im/infra-role-postgres-ha.git
   version: 8d8b9fbbae27e42995cf8b1ed806787236639162
-  scm: git
