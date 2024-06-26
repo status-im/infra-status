@@ -27,6 +27,7 @@ postgres_alter_system_settings:
   checkpoint_timeout: '5min'
   max_wal_size: '1GB'
   min_wal_size: '80MB'
+  max_locks_per_transaction: '2160'
 
 # Open PostgreSQL Port
 open_ports_default_comment: '{{ postgres_ha_service_name }}'
