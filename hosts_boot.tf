@@ -4,7 +4,7 @@ module "boot" {
   /* node type */
   name   = "boot"
   group  = "boot"
-  env    = "shards"
+  env    = "status"
   stage  = terraform.workspace
 
   /* scaling */

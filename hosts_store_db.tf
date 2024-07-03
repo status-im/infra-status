@@ -4,7 +4,7 @@ module "store-db" {
   /* node type */
   name   = "store-db"
   group  = "store-db"
-  env    = "shards"
+  env    = "status"
   stage  = terraform.workspace
 
   /* scaling */

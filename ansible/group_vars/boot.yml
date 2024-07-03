@@ -15,7 +15,7 @@ nim_waku_log_level: 'debug'
 nim_waku_protocols_enabled: ['relay', 'filter', 'lightpush', 'peer-exchange']
 nim_waku_disc_v5_enabled: true
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
-nim_waku_node_key: '{{lookup("bitwarden", "fleets/shards/"+stage+"/nodekeys", field=hostname)}}'
+nim_waku_node_key: '{{lookup("bitwarden", "fleets/status/"+stage+"/nodekeys", field=hostname)}}'
 
 # Topic configuration
 nim_waku_cluster_id: 16
@@ -49,7 +49,7 @@ nim_waku_store_message_retention_policy: 'time:2592000' # 30 days
 nim_waku_dns_disc_enabled: true
 nim_waku_dns_disc_url_map:
   test:    'enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.shards.nodes.status.im'
-  staging: 'enrtree://AI4W5N5IFEUIHF5LESUAOSMV6TKWF2MB6GU2YK7PU4TYUGUNOCEPW@boot.staging.shards.nodes.status.im'
+  staging: 'enrtree://AI4W5N5IFEUIHF5LESUAOSMV6TKWF2MB6GU2YK7PU4TYUGUNOCEPW@boot.staging.status.nodes.status.im'
 nim_waku_dns_disc_url: '{{ nim_waku_dns_disc_url_map[stage] }}'
 
 # Websockets
@@ -76,10 +76,12 @@ certbot_certs_map:
   test:
     - domains:
         - '{{ nim_waku_websocket_domain }}'
+        - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards."+stage) }}' # Legacy Fleet Name
         - '{{ nim_waku_websocket_domain | replace("status.im", "statusim.net") }}' # Legacy Domain
   staging:
     - domains:
         - '{{ nim_waku_websocket_domain }}'
+        - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards."+stage) }}' # Legacy Fleet Name
 
 # Open LibP2P Ports
 open_ports_default_comment: '{{ nim_waku_cont_name }}'
