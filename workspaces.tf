@@ -31,7 +31,7 @@ locals {
       db_ac_type = "ecs.c6.large"
       db_gc_type = "c2d-highcpu-2"
 
-      store_db_data_vol_size = 250
+      store_db_data_vol_size = 300
     }
     staging = {
       /* Settings specific to the test fleet/workspace. */
