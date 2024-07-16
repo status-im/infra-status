@@ -28,6 +28,7 @@ postgres_alter_system_settings:
   max_wal_size: '1GB'
   min_wal_size: '80MB'
   max_locks_per_transaction: '2160'
+  autovacuum_work_mem: '{{ ((ansible_memtotal_mb * 0.1) * 1000) | int }}' # kB
 
 # Open PostgreSQL Port
 open_ports_default_comment: '{{ postgres_ha_service_name }}'
