@@ -7,7 +7,7 @@ bootstrap__active_extra_users:
 bootstrap__logrotate_frequency: 'hourly'
 
 # Tag dependent on fleet: test
-nim_waku_cont_tag: 'deploy-shards-{{ stage }}'
+nim_waku_cont_tag: 'deploy-{{ env }}-{{ stage }}'
 nim_waku_cont_name: 'nim-waku-boot'
 nim_waku_cont_vol: '/docker/{{ nim_waku_cont_name }}'
 nim_waku_node_conf_path: '{{ nim_waku_cont_vol }}/conf'
