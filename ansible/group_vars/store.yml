@@ -49,7 +49,7 @@ nim_waku_store_message_db_pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/
 nim_waku_store_message_db_url: 'postgres://{{ nim_waku_store_message_db_user}}:{{ nim_waku_store_message_db_pass }}@store-db-01.{{ ansible_domain }}.wg:5432/{{nim_waku_store_message_db_name}}'
 nim_waku_store_message_retention_policy_map:
   test:    'size:250GB'
-  staging: 'size:80GB'
+  staging: 'size:75GB'
 nim_waku_store_message_retention_policy: '{{ nim_waku_store_message_retention_policy_map[stage] }}'
 
 # DNS Discovery
