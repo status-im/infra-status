@@ -11,3 +11,6 @@ bootstrap__consul_certs_client_key: '{{lookup("bitwarden", "consul/certs",      
 bootstrap__sshguard_whitelist_extra: ['{{lookup("bitwarden", "sshguard/whitelist", field="jakubgs-home")}}']
 # Wireguard
 wireguard_consul_acl_token: '{{lookup("bitwarden", "consul/acl-tokens", field="wireguard")}}'
+
+# Volume of Trace level logs is too high and fills up ES cluster.
+bootstrap__rsyslog_filter_rules: ['TRC']
