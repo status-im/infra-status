@@ -6,7 +6,7 @@ bootstrap__active_extra_users:
 # Hourly rotation to avoid disk space issue
 bootstrap__logrotate_frequency: 'hourly'
 
-# Tag dependent on fleet: test
+# Tag dependent on fleet
 nim_waku_cont_tag: 'deploy-{{ env }}-{{ stage }}'
 nim_waku_cont_name: 'nim-waku-boot'
 nim_waku_cont_vol: '/docker/{{ nim_waku_cont_name }}'
@@ -48,7 +48,7 @@ nim_waku_store_message_retention_policy: 'time:2592000' # 30 days
 # DNS Discovery
 nim_waku_dns_disc_enabled: true
 nim_waku_dns_disc_url_map:
-  test:    'enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.shards.nodes.status.im'
+  prod:    'enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.status.nodes.status.im'
   staging: 'enrtree://AI4W5N5IFEUIHF5LESUAOSMV6TKWF2MB6GU2YK7PU4TYUGUNOCEPW@boot.staging.status.nodes.status.im'
 nim_waku_dns_disc_url: '{{ nim_waku_dns_disc_url_map[stage] }}'
 
@@ -73,15 +73,14 @@ certbot_containers_to_stop: ['{{ nim_waku_cont_name }}']
 certbot_certs: '{{ certbot_certs_map[stage] }}'
 # FIXME: Remove once ENR records are updated without the domain.
 certbot_certs_map:
-  test:
+  prod:
     - domains:
         - '{{ nim_waku_websocket_domain }}'
-        - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards."+stage) }}' # Legacy Fleet Name
-        - '{{ nim_waku_websocket_domain | replace("status.im", "statusim.net") }}' # Legacy Domain
+        - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards.test") }}' # Legacy Fleet Name
   staging:
     - domains:
         - '{{ nim_waku_websocket_domain }}'
-        - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards."+stage) }}' # Legacy Fleet Name
+        - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards.staging") }}' # Legacy Fleet Name
 
 # Open LibP2P Ports
 open_ports_default_comment: '{{ nim_waku_cont_name }}'

@@ -26,7 +26,7 @@ locals {
     }
 
     /* Settings specific to the test fleet/workspace. */
-    test = {
+    prod = {
       db_do_type = "s-2vcpu-4gb"
       db_ac_type = "ecs.c6.large"
       db_gc_type = "c2d-highcpu-2"
