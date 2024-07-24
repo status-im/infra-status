@@ -12,7 +12,7 @@ There are 3 kinds of nodes:
 
 DNS `TXT` ENRTree records exist to discover available fleets:
 ```
-enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.status.nodes.status.im
+enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.prod.status.nodes.status.im
 enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@store.prod.status.nodes.status.im
 ```
 ```
