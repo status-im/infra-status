@@ -48,7 +48,7 @@ nim_waku_store_message_retention_policy: 'time:2592000' # 30 days
 # DNS Discovery
 nim_waku_dns_disc_enabled: true
 nim_waku_dns_disc_url_map:
-  prod:    'enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.test.status.nodes.status.im'
+  prod:    'enrtree://AMOJVZX4V6EXP7NTJPMAYJYST2QP6AJXYW76IU6VGJS7UVSNDYZG4@boot.prod.status.nodes.status.im'
   staging: 'enrtree://AI4W5N5IFEUIHF5LESUAOSMV6TKWF2MB6GU2YK7PU4TYUGUNOCEPW@boot.staging.status.nodes.status.im'
 nim_waku_dns_disc_url: '{{ nim_waku_dns_disc_url_map[stage] }}'
 
