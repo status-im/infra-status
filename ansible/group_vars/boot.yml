@@ -61,8 +61,10 @@ nim_waku_websocket_ssl_cert: '/etc/letsencrypt/live/{{ nim_waku_websocket_domain
 nim_waku_websocket_ssl_key: '/etc/letsencrypt/live/{{ nim_waku_websocket_domain }}/privkey.pem'
 
 # Consul Service
+nim_waku_consul_check_interval: '120s'
+nim_waku_consul_check_timeout: '5s'
 nim_waku_consul_success_before_passing: 5
-nim_waku_consul_failures_before_warning: 2
+nim_waku_consul_failures_before_warning: 5
 nim_waku_consul_failures_before_critical: 20
 
 # LetsEncrypt via Certbot
