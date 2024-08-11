@@ -56,6 +56,13 @@ postgres_system_setting_stage:
     max_parallel_workers: '4'
     max_parallel_maintenance_workers: '2'
 
+# Consul
+postgres_ha_consul_check_interval: '60s'
+postgres_ha_consul_check_timeout: '5s'
+postgres_ha_consul_success_before_passing: 1
+postgres_ha_consul_failures_before_warning: 5
+postgres_ha_consul_failures_before_critical: 10
+
 # Open PostgreSQL Port
 open_ports_default_comment: '{{ postgres_ha_service_name }}'
 open_ports_default_chain: 'SERVICES'
