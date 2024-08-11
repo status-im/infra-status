@@ -18,11 +18,11 @@
 
 - name: infra-role-nim-waku
   src: git@github.com:status-im/infra-role-nim-waku.git
-  version: fe929f98309104ea610a80a2d2fac5a8fb330a21
+  version: c29a2b83b600ea634b89cb457290a3f91a736755
 
 - name: infra-role-certbot
   src: git@github.com:status-im/infra-role-certbot.git
-  version: f6b318df0a7f34fec071c0ce7063bf41622095a4
+  version: dfd0bce4e5e2484f9be6f38ca34af92e5461ee8c
 
 - name: infra-role-postgres-ha
   src: git@github.com:status-im/infra-role-postgres-ha.git
