@@ -29,34 +29,31 @@ postgres_ha_alter_system_settings: '{{ postgres_system_setting_default | combine
 
 postgres_system_setting_default:
   checkpoint_timeout: '5min'
-  max_wal_size: '1GB'
-  min_wal_size: '80MB'
   max_locks_per_transaction: '2160'
-  autovacuum_work_mem: '{{ ((ansible_memtotal_mb * 0.1) * 1000) | int }}' # kB
 
 postgres_system_setting_stage:
   staging: {}
   prod:
-  ## The following are obtained from https://pgtune.leopard.in.ua/ (8GB RAM 4CPUs SSD PG version 15)
+  ## The following are obtained from https://pgtune.leopard.in.ua/ (16GB RAM 8CPUs SSD PG version 15)
     max_connections: '300'
-    shared_buffers: '2GB'
-    effective_cache_size: '6GB'
-    maintenance_work_mem: '512MB'
+    shared_buffers: '4GB'
+    effective_cache_size: '12GB'
+    maintenance_work_mem: '1GB'
     checkpoint_completion_target: '0.9'
     wal_buffers: '16MB'
     default_statistics_target: '100'
     random_page_cost: '1.1'
     effective_io_concurrency: '200'
-    work_mem: '3495kB'
+    work_mem: '10485kB'
     huge_pages: 'off'
-    min_wal_size: '2GB'
-    max_wal_size: '8GB'
-    max_worker_processes: '4'
-    max_parallel_workers_per_gather: '2'
-    max_parallel_workers: '4'
-    max_parallel_maintenance_workers: '2'
-  ## Autovacuum
-  autovacuum: 'off'
+    min_wal_size: '1GB'
+    max_wal_size: '4GB'
+    max_worker_processes: '8'
+    max_parallel_workers_per_gather: '4'
+    max_parallel_workers: '8'
+    max_parallel_maintenance_workers: '4'
+    ## Autovacuum
+    autovacuum: 'off'
 
 # Consul
 postgres_ha_consul_check_interval: '60s'
