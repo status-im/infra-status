@@ -55,6 +55,8 @@ postgres_system_setting_stage:
     max_parallel_workers_per_gather: '2'
     max_parallel_workers: '4'
     max_parallel_maintenance_workers: '2'
+  ## Autovacuum
+  autovacuum: 'off'
 
 # Consul
 postgres_ha_consul_check_interval: '60s'
