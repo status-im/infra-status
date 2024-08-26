@@ -5,6 +5,7 @@ bootstrap__active_extra_users:
 
 # Hourly rotation to avoid disk space issue
 bootstrap__logrotate_frequency: 'hourly'
+bootstrap__logrotate_timer_frequency: '*:0/30'
 
 # Tag dependent on fleet
 nim_waku_cont_tag: 'deploy-{{ env }}-{{ stage }}'
