@@ -14,10 +14,22 @@ nim_waku_cont_name: 'nim-waku-store'
 nim_waku_cont_vol: '/docker/{{ nim_waku_cont_name }}'
 nim_waku_node_conf_path: '{{ nim_waku_cont_vol }}/conf'
 nim_waku_log_level: 'debug'
-nim_waku_protocols_enabled: ['relay', 'store', 'legacy-store']
+nim_waku_protocols_enabled: '{{ nim_waku_protocols_enabled_map[stage] }}'
+nim_waku_protocols_enabled_map:
+  staging: ['relay', 'store', 'legacy-store', 'store-sync']
+  prod:    ['relay', 'store', 'legacy-store']
 nim_waku_disc_v5_enabled: true
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
 nim_waku_node_key: '{{lookup("vault", "nodekeys", field=hostname)}}'
+# Store Sync
+nim_waku_store_sync_node_addr: '{{ nim_waku_store_sync_node_addr_map[inventory_hostname] }}'
+nim_waku_store_sync_node_addr_map:
+  store-01.ac-cn-hongkong-c.status.staging: '/dns4/store-01.do-ams3.status.staging.status.im/tcp/30303/p2p/16Uiu2HAm3xVDaz6SRJ6kErwC21zBJEZjavVXg7VSkoWzaV1aMA3F'
+  store-01.do-ams3.status.staging:          '/dns4/store-01.gc-us-central1-a.status.staging.status.im/tcp/30303/p2p/16Uiu2HAmB7Ur9HQqo3cWDPovRQjo57fxWWDaQx27WxSzDGhN4JKg'
+  store-01.gc-us-central1-a.status.staging: '/dns4/store-02.do-ams3.status.staging.status.im/tcp/30303/p2p/16Uiu2HAmCDSnT8oNpMR9HH6uipD71KstYuDCAQGpek9XDAVmqdEr'
+  store-02.ac-cn-hongkong-c.status.staging: '/dns4/store-02.gc-us-central1-a.status.staging.status.im/tcp/30303/p2p/16Uiu2HAmKBd6crqQNZ6nKCSCpHCAwUPn3DUDmkcPSWUTyVXpxKsW'
+  store-02.do-ams3.status.staging:          '/dns4/store-02.ac-cn-hongkong-c.status.staging.status.im/tcp/30303/p2p/16Uiu2HAmU7xtcwytXpGpeDrfyhJkiFvTkQbLB9upL5MXPLGceG9K'
+  store-02.gc-us-central1-a.status.stagin:  '/dns4/store-01.ac-cn-hongkong-c.status.staging.status.im/tcp/30303/p2p/16Uiu2HAmMU7Y29oL6DmoJfBFv8J4JhYzYgazPL7nGKJFBV3qcj2E'
 
 # Topic configuration
 nim_waku_cluster_id: 16
