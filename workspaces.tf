@@ -27,9 +27,13 @@ locals {
 
     /* Settings specific to the test fleet/workspace. */
     prod = {
-      db_do_type = "s-8vcpu-16gb"
-      db_ac_type = "ecs.c6.2xlarge"
-      db_gc_type = "c2d-highcpu-8"
+      node_do_type = "s-2vcpu-4gb"
+      node_ac_type = "ecs.t5-lc1m2.large"
+      node_gc_type = "c2d-highcpu-2"
+
+      db_do_type = "c2-16vcpu-32gb-intel"
+      db_ac_type = "ecs.c6.4xlarge"
+      db_gc_type = "c2d-highcpu-16"
 
       store_db_data_vol_size = 320
     }
