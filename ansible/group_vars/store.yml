@@ -12,7 +12,7 @@ nim_waku_cont_tag: 'deploy-{{ env }}-{{ stage }}'
 nim_waku_cont_name: 'nim-waku-store'
 nim_waku_cont_vol: '/docker/{{ nim_waku_cont_name }}'
 nim_waku_node_conf_path: '{{ nim_waku_cont_vol }}/conf'
-nim_waku_log_level: "{{ 'trace' if stage == 'staging' else 'debug' }}"
+nim_waku_log_level: 'debug'
 nim_waku_protocols_enabled: ['relay', 'store']
 nim_waku_disc_v5_enabled: true
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
