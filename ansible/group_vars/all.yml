@@ -14,3 +14,9 @@ wireguard_consul_acl_token: '{{lookup("bitwarden", "consul/acl-tokens", field="w
 
 # Volume of Trace level logs is too high and fills up ES cluster.
 bootstrap__rsyslog_filter_rules: ['TRC']
+
+# Docker registry
+bootstrap__docker_registries:
+  - url:      'https://harbor.status.im'
+    username: 'robot$wakuorg+infra-status'
+    password: '{{ lookup("bitwarden", "harbor-robot", field="robot$wakuorg+infra-status") }}'
