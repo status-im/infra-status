@@ -66,8 +66,6 @@ postgres_ha_consul_failures_before_warning: 5
 postgres_ha_consul_failures_before_critical: 10
 
 # Open PostgreSQL Port
-open_ports_default_comment: '{{ postgres_ha_service_name }}'
-open_ports_default_chain: 'SERVICES'
-open_ports_default_protocol: 'tcp'
 open_ports_list:
-  - { port: '{{ postgres_ha_cont_port }}', ipset: '{{ env }}.{{ stage }}' }
+  postgres:
+    - { comment: 'PostgreSQL', port: '{{ postgres_ha_cont_port }}', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }

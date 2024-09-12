@@ -1,4 +1,6 @@
 ---
+bootstrap__firewall_nftables: true
+
 # Root password
 bootstrap__root_pass: '{{lookup("bitwarden", "root-pass")}}'
 # Consul

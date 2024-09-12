@@ -92,16 +92,15 @@ certbot_certs_map:
         - '{{ nim_waku_websocket_domain }}'
         - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards.staging") }}' # Legacy Fleet Name
 
-# Open LibP2P Ports
-open_ports_default_comment: '{{ nim_waku_cont_name }}'
-open_ports_default_chain: 'SERVICES'
-open_ports_default_protocol: 'tcp'
+# Open Nim-Waku Ports
 open_ports_list:
-  - { port: '80', comment: 'Nginx and Certbot' }
-  - { port: '{{ nim_waku_p2p_tcp_port }}' }
-  - { port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
-  - { port: '{{ nim_waku_metrics_port }}', chain: 'VPN', ipset: 'metrics.hq' }
-  - { port: '{{ nim_waku_websock_port }}' }
+  nginx:
+    - { comment: 'Nginx and Certbot', port: '80' }
+  nim-waku:
+    - { comment: 'Nim-Waku LibP2P',       port: '{{ nim_waku_p2p_tcp_port }}' }
+    - { comment: 'Nim-Waku Discovery v5', port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
+    - { comment: 'Nim-Waku Metrics',      port: '{{ nim_waku_metrics_port }}', ipset: 'metrics.hq', iifname: 'wg0' }
+    - { comment: 'Nim-Waku WebSocket',    port: '{{ nim_waku_websock_port }}' }
 
 # Public Config file access
 nginx_sites:
