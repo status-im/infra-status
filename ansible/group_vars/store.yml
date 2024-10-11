@@ -14,10 +14,7 @@ nim_waku_cont_name: 'nim-waku-store'
 nim_waku_cont_vol: '/docker/{{ nim_waku_cont_name }}'
 nim_waku_node_conf_path: '{{ nim_waku_cont_vol }}/conf'
 nim_waku_log_level: 'debug'
-nim_waku_protocols_enabled_map:
-  prod: ['relay', 'store']
-  staging: ['relay', 'store', 'store-sync']
-nim_waku_protocols_enabled: '{{ nim_waku_protocols_enabled_map[stage] }}'
+nim_waku_protocols_enabled: ['relay', 'store']
 nim_waku_disc_v5_enabled: true
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
 nim_waku_node_key: '{{lookup("bitwarden", "fleets/status/"+stage+"/nodekeys", field=hostname)}}'
