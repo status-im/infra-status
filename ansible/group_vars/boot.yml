@@ -92,7 +92,7 @@ open_ports_list:
   nim-waku:
     - { comment: 'Nim-Waku LibP2P',       port: '{{ nim_waku_p2p_tcp_port }}' }
     - { comment: 'Nim-Waku Discovery v5', port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
-    - { comment: 'Nim-Waku Metrics',      port: '{{ nim_waku_metrics_port }}', ipset: 'metrics.hq', iifname: 'wg0' }
+    - { comment: 'Nim-Waku Metrics',      port: '{{ nim_waku_metrics_port }}', ipset: 'hq.metrics', iifname: 'wg0' }
     - { comment: 'Nim-Waku WebSocket',    port: '{{ nim_waku_websock_port }}' }
 
 # Public Config file access
