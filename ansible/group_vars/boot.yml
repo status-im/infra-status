@@ -36,6 +36,8 @@ nim_waku_p2p_tcp_port: 30303
 nim_waku_metrics_port: 8008
 nim_waku_disc_v5_port: 9000
 nim_waku_rpc_tcp_port: 8545
+nim_waku_rest_port: 8645
+nim_waku_rest_addr: '0.0.0.0'
 nim_waku_websock_port: 443
 
 # Limits
@@ -68,6 +70,11 @@ nim_waku_consul_success_before_passing: 5
 nim_waku_consul_failures_before_warning: 5
 nim_waku_consul_failures_before_critical: 20
 
+# Monitoring
+nim_waku_sonda_enabled: true
+nim_waku_sonda_metrics_port: 8004
+nim_waku_node_rest_address: 'http://{{ inventory_hostname }}.wg:{{ nim_waku_rest_port }}'
+
 # LetsEncrypt via Certbot
 certbot_docker_enabled: true
 certbot_admin_email: 'devops@status.im'
@@ -90,10 +97,13 @@ open_ports_list:
   nginx:
     - { comment: 'Nginx and Certbot', port: '80' }
   nim-waku:
-    - { comment: 'Nim-Waku LibP2P',       port: '{{ nim_waku_p2p_tcp_port }}' }
-    - { comment: 'Nim-Waku Discovery v5', port: '{{ nim_waku_disc_v5_port }}', protocol: 'udp' }
-    - { comment: 'Nim-Waku Metrics',      port: '{{ nim_waku_metrics_port }}', ipset: 'hq.metrics', iifname: 'wg0' }
-    - { comment: 'Nim-Waku WebSocket',    port: '{{ nim_waku_websock_port }}' }
+    - { comment: 'Nim-Waku LibP2P',        port: '{{ nim_waku_p2p_tcp_port }}' }
+    - { comment: 'Nim-Waku Discovery v5',  port: '{{ nim_waku_disc_v5_port }}',       protocol: 'udp' }
+    - { comment: 'Nim-Waku Metrics',       port: '{{ nim_waku_metrics_port }}',       ipset: 'hq.metrics', iifname: 'wg0' }
+    - { comment: 'Nim-Waku REST API port', port: '{{ nim_waku_rest_port }}',          ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
+    - { comment: 'Nim-Waku WebSocket',     port: '{{ nim_waku_websock_port }}' }
+  nim-waku-sonda:
+    - { comment: 'Nim-Waku Sonda Metrics', port: '{{ nim_waku_sonda_metrics_port }}', ipset: 'hq.metrics', iifname: 'wg0' }
 
 # Public Config file access
 nginx_sites:

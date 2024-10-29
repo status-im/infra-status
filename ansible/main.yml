@@ -23,8 +23,9 @@
     - boot
     - store
   roles:
-    - { role: infra-role-open-ports,   tags: open-ports  }
-    - { role: infra-role-swap-file,    tags: swap-file   }
-    - { role: infra-role-certbot,      tags: certbot     }
-    - { role: infra-role-nim-waku,     tags: nim-waku    }
-    - { role: infra-role-nginx,        tags: nginx       }
+    - { role: infra-role-open-ports,     tags: open-ports                                   }
+    - { role: infra-role-swap-file,      tags: swap-file                                    }
+    - { role: infra-role-certbot,        tags: certbot                                      }
+    - { role: infra-role-nim-waku,       tags: nim-waku                                     }
+    - { role: infra-role-nim-waku-sonda, tags: nim-waku-sonda, when: nim_waku_sonda_enabled }
+    - { role: infra-role-nginx,          tags: nginx                                        }
