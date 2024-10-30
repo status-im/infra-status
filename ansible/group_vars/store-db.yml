@@ -55,8 +55,8 @@ postgres_system_setting_stage:
     ## Autovacuum
     autovacuum: 'off'
 
-# For each 16GB of ram, 1 GB is set to share memory
-postgres_share_memory: '{{ ansible_memtotal_mb / 16 | int }}m'
+# Use the 10% of RAM for shared memory
+postgres_ha_share_memory: '{{ (ansible_memtotal_mb * 0.1) | int }}m'
 
 # Consul
 postgres_ha_consul_check_interval: '60s'
