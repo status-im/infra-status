@@ -65,7 +65,17 @@ postgres_ha_consul_success_before_passing: 1
 postgres_ha_consul_failures_before_warning: 5
 postgres_ha_consul_failures_before_critical: 10
 
+# Metrics
+postgres_ha_metrics_exporter_cont_port: 9187
+
 # Open PostgreSQL Port
 open_ports_list:
   postgres:
-    - { comment: 'PostgreSQL', port: '{{ postgres_ha_cont_port }}', ipset: '{{ env }}.{{ stage }}', iifname: 'wg0' }
+    - comment: 'PostgreSQL'
+      port: '{{ postgres_ha_cont_port }}'
+      ipset: '{{ env }}.{{ stage }}'
+      iifname: 'wg0'
+    - comment: 'PostgreSQL Metrics'
+      port: '{{ postgres_ha_metrics_exporter_cont_port }}'
+      ipset: 'hq.metrics'
+      iifname: 'wg0'
