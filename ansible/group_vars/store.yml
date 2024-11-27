@@ -76,6 +76,9 @@ nim_waku_consul_success_before_passing: 5
 nim_waku_consul_failures_before_warning: 10
 nim_waku_consul_failures_before_critical: 40
 
+# Monitoring
+nim_waku_sonda_enabled: false
+
 # LetsEncrypt via Certbot
 certbot_docker_enabled: true
 certbot_admin_email: 'devops@status.im'
