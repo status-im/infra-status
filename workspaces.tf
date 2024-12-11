@@ -38,6 +38,10 @@ locals {
       store_db_data_vol_size = 320
     }
     staging = {
+      node_do_type = "s-2vcpu-4gb"
+      node_ac_type = "ecs.t5-lc1m2.large"
+      node_gc_type = "c2d-highcpu-2"
+
       db_do_type = "s-2vcpu-4gb"
       db_ac_type = "ecs.t5-lc1m2.large"
       db_gc_type = "c2d-highcpu-2"
