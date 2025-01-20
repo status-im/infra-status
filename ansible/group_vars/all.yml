@@ -22,6 +22,6 @@ bootstrap__docker_registries:
     password: '{{ lookup("bitwarden", "harbor-robot", field="robot$wakuorg+infra-status") }}'
 
 # Vault certificate
-bootstrap__vault_ca_cert:           '{{ lookup(passwordstore, services/vault/certs/root-ca/cert returnall=true)}}'
-bootstrap__vault_client_cert:       '{{ lookup(passwordstore, services/vault/certs/client-host/cert returnall=true)}}'
-bootstrap__vault_client_key:        '{{ lookup(passwordstore, services/vault/certs/client-host/privkey returnall=true)}}'
+bootstrap__vault_ca_cert:           '{{ lookup("passwordstore", "services/vault/certs/root-ca/cert returnall=true")}}'
+bootstrap__vault_client_cert:       '{{ lookup("passwordstore", "services/vault/certs/client-host/cert returnall=true")}}'
+bootstrap__vault_client_key:        '{{ lookup("passwordstore", "services/vault/certs/client-host/privkey returnall=true")}}'
