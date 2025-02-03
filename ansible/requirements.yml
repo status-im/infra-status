@@ -31,3 +31,7 @@
 - name: infra-role-nim-waku-sonda
   src: git@github.com:status-im/infra-role-nim-waku-sonda.git
   version: 480a6b7edc19b9e736efd40c800b24dcddfa4b4c
+
+- name: infra-role-wazuh-agent
+  src: git@github.com:status-im/infra-role-wazuh-agent.git
+  version: 413e806e8238a4d6f361fab8897bddc1411b0b9b

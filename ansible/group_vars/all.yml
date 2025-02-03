@@ -27,3 +27,7 @@ bootstrap__docker_registries:
   - url:      'https://harbor.status.im'
     username: 'robot$wakuorg+infra-status'
     password: '{{ lookup("vault", "robot", field="robot$wakuorg+infra-status", env="ci", stage="harbor") }}'
+
+# Wazuh Agent
+wazuh_agent_enrollment_key:         '{{ lookup("vault", "wazuh-agent", field="enrollment-key",          env="all", stage="all")}}'
+wazuh_root_ca:                      '{{ lookup("vault", "certs/wazuh-ca", field="certificate",          env="all", stage="all")}}'
