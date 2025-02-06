@@ -17,7 +17,7 @@ nim_waku_log_level: 'debug'
 nim_waku_protocols_enabled: ['relay', 'store']
 nim_waku_disc_v5_enabled: true
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
-nim_waku_node_key: '{{lookup("bitwarden", "fleets/status/"+stage+"/nodekeys", field=hostname)}}'
+nim_waku_node_key: '{{lookup("vault", "nodekeys", field=hostname)}}'
 
 # Topic configuration
 nim_waku_cluster_id: 16
@@ -47,7 +47,7 @@ nim_waku_ip_colocation_limit: 100
 # Store
 nim_waku_store_message_db_name: 'nim-waku'
 nim_waku_store_message_db_user: 'nim-waku'
-nim_waku_store_message_db_pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/db/nim-waku")}}'
+nim_waku_store_message_db_pass: '{{lookup("vault", "database", field="db-password")}}'
 nim_waku_store_message_db_url: 'postgres://{{ nim_waku_store_message_db_user}}:{{ nim_waku_store_message_db_pass }}@store-db-01.{{ ansible_domain }}.wg:5432/{{nim_waku_store_message_db_name}}'
 nim_waku_store_message_retention_policy_map:
   prod:    'size:250GB'

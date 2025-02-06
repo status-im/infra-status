@@ -13,7 +13,7 @@ postgres_ha_replica_enabled: false
 postgres_ha_replica_allowed_addresses: []
 
 postgres_ha_admin_user: 'postgres'
-postgres_ha_admin_pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/db/admin")}}'
+postgres_ha_admin_pass: '{{lookup("vault", "database", field="db-admin-password")}}'
 
 # Disable backups since we have multiple DCs
 postgres_ha_backup: false
@@ -22,7 +22,7 @@ postgres_ha_backup_enabled: false
 postgres_ha_databases:
   - name: 'nim-waku'
     user: 'nim-waku'
-    pass: '{{lookup("bitwarden", "fleets/status/"+stage+"/db/nim-waku")}}'
+    pass: '{{lookup("vault", "database", field="db-password")}}'
 
 # Avoid exceeding volume size with WAL log.
 postgres_ha_alter_system_settings: '{{ postgres_system_setting_default | combine(postgres_system_setting_stage[stage])}}'
