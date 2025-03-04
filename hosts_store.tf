@@ -11,9 +11,9 @@ module "store" {
   host_count = local.ws["store_hosts_count"]
 
   /* instance sizes */
-  do_type = local.ws["node_do_type"] /* DigitalOcean */
-  ac_type = local.ws["node_ac_type"] /* Alibaba Cloud */
-  gc_type = local.ws["node_gc_type"] /* Google Cloud */
+  do_type = local.ws["store_do_type"] /* DigitalOcean */
+  ac_type = local.ws["store_ac_type"] /* Alibaba Cloud */
+  gc_type = local.ws["store_gc_type"] /* Google Cloud */
 
   /* firewall */
   open_tcp_ports = [
