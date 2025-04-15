@@ -90,11 +90,9 @@ certbot_certs_map:
   prod:
     - domains:
         - '{{ nim_waku_websocket_domain }}'
-        - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards.test") }}' # Legacy Fleet Name
   staging:
     - domains:
         - '{{ nim_waku_websocket_domain }}'
-        - '{{ nim_waku_websocket_domain | replace("status."+stage, "shards.staging") }}' # Legacy Fleet Name
 
 # Open Nim-Waku Ports
 open_ports_list:
