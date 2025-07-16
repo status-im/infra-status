@@ -12,6 +12,14 @@
 - name: Configure Waku Storage DB Nodes
   serial: '{{ serial|default(1) }}'
   hosts: store-db
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-open-ports,   tags: open-ports  }
     - { role: infra-role-swap-file,    tags: swap-file   }
@@ -22,6 +30,14 @@
   hosts:
     - boot
     - store
+  pre_tasks:
+    - name: Enable Maintenance Mode
+      command: 'maintenance Ansible run by {{ ansible_env.USER }}'
+      tags: always
+  post_tasks:
+    - name: Disable Maintenance Mode
+      command: 'maintenance disable'
+      tags: always
   roles:
     - { role: infra-role-open-ports,     tags: open-ports                                   }
     - { role: infra-role-swap-file,      tags: swap-file                                    }
