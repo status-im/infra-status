@@ -8,6 +8,14 @@ There are 3 kinds of nodes:
 * `store` - Messages store nodes with `relay`, and `store` protocols.
 * `store-db` - PostgreSQL used by `store` nodes for envelope storage.
 
+# Dashboard
+
+You can look up current state of the fleet at: https://fleets.waku.org/
+You can check fleet status via Canary service:
+
+- https://canary.infra.status.im/status/status-prod
+- https://canary.infra.status.im/status/status-staging
+
 # Discovery
 
 DNS `TXT` ENRTree records exist to discover available fleets:
