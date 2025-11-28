@@ -4,7 +4,7 @@ This repo defines infrastructure for running [nim-waku](github.com/status-im/nim
 
 There are 3 kinds of nodes:
 
-* `boot` - Bootstrap nodes. No `store` protcol enabled.
+* `boot` - Bootstrap nodes. No `store` protocol enabled.
 * `store` - Messages store nodes with `relay`, and `store` protocols.
 * `store-db` - PostgreSQL used by `store` nodes for envelope storage.
 
