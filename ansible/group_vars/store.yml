@@ -23,6 +23,7 @@ nim_waku_dns4_domain_name: '{{ dns_entry }}'
 nim_waku_node_key: '{{lookup("vault", "nodekeys", field=hostname)}}'
 # Store Sync
 nim_waku_store_sync_node_addr: '{{ nim_waku_store_sync_node_addr_map[inventory_hostname] }}'
+nim_waku_store_sync_relay_jitter: 150
 nim_waku_store_sync_node_addr_map:
   store-01.ac-cn-hongkong-c.status.staging: '/dns4/store-01.do-ams3.status.staging.status.im/tcp/30303/p2p/16Uiu2HAm3xVDaz6SRJ6kErwC21zBJEZjavVXg7VSkoWzaV1aMA3F'
   store-01.do-ams3.status.staging:          '/dns4/store-01.gc-us-central1-a.status.staging.status.im/tcp/30303/p2p/16Uiu2HAmB7Ur9HQqo3cWDPovRQjo57fxWWDaQx27WxSzDGhN4JKg'
