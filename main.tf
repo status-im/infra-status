@@ -9,8 +9,5 @@ terraform {
     gzip = true
     /* WARNING This needs to be changed for every repo. */
     path      = "terraform/shards/"
-    ca_file   = "ansible/files/consul-ca.crt"
-    cert_file = "ansible/files/consul-client.crt"
-    key_file  = "ansible/files/consul-client.key"
   }
 }
