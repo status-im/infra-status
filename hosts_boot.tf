@@ -8,7 +8,9 @@ module "boot" {
   stage  = terraform.workspace
 
   /* scaling */
-  host_count = local.ws["boot_hosts_count"]
+  ac_count = local.ws["boot_ac_count"]
+  do_count = local.ws["boot_do_count"]
+  gc_count = local.ws["boot_gc_count"]
 
   /* instance sizes */
   do_type = local.ws["boot_do_type"] /* DigitalOcean */
@@ -25,4 +27,3 @@ module "boot" {
     "9000", /* discovery v5 */
   ]
 }
-
