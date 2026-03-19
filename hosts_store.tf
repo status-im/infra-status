@@ -8,7 +8,9 @@ module "store" {
   stage  = terraform.workspace
 
   /* scaling */
-  host_count = local.ws["store_hosts_count"]
+  ac_count = local.ws["store_ac_count"]
+  do_count = local.ws["store_do_count"]
+  gc_count = local.ws["store_gc_count"]
 
   /* instance sizes */
   do_type = local.ws["store_do_type"] /* DigitalOcean */
@@ -25,4 +27,3 @@ module "store" {
     "9000", /* discovery v5 */
   ]
 }
-
