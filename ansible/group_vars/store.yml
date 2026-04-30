@@ -16,7 +16,7 @@ nim_waku_node_conf_path: '{{ nim_waku_cont_vol }}/conf'
 nim_waku_log_level: 'debug'
 nim_waku_protocols_enabled: '{{ nim_waku_protocols_enabled_map[stage] }}'
 nim_waku_protocols_enabled_map:
-  staging: ['relay', 'store', 'legacy-store', 'store-sync']
+  staging: ['relay', 'store', 'store-sync']
   prod:    ['relay', 'store', 'legacy-store']
 nim_waku_disc_v5_enabled: true
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
