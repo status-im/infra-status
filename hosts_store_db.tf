@@ -24,6 +24,4 @@ module "store-db" {
 
   /* billing */
   ac_elastic_ip = true
-  /* FIXME: Remove after manual change takes effect. */
-  ac_internet_charge_type = "PayByBandwidth"
 }
