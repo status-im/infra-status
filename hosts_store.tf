@@ -17,6 +17,11 @@ module "store" {
   ac_type = local.ws["store_ac_type"] /* Alibaba Cloud */
   gc_type = local.ws["store_gc_type"] /* Google Cloud */
 
+  /* billing */
+  ac_elastic_ip = true
+  /* FIXME: Remove after manual change takes effect. */
+  ac_internet_charge_type = "PayByBandwidth"
+
   /* firewall */
   open_tcp_ports = [
     "30303", /* p2p main */
