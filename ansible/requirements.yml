@@ -18,7 +18,7 @@
 
 - name: infra-role-nim-waku
   src: git@github.com:status-im/infra-role-nim-waku.git
-  version: 8c41bec22c839d5aa0a72d4c05256f715816dec2
+  version: ef2fb8f244c6256561d00571bb620847db4c4022
 
 - name: infra-role-certbot
   src: git@github.com:status-im/infra-role-certbot.git
@@ -34,4 +34,4 @@
 
 - name: infra-role-wazuh-agent
   src: git@github.com:status-im/infra-role-wazuh-agent.git
-  version: e521f94f2dee59ce67f383b97ce1b3a956144afe
+  version: 83e1b9b7e949e4f63b353c2f8d7ada8b287480f5
