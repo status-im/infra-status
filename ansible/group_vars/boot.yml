@@ -16,6 +16,7 @@ nim_waku_cont_network: '{{ nim_waku_cont_name }}'
 nim_waku_log_level: 'debug'
 nim_waku_protocols_enabled: ['relay', 'filter', 'lightpush', 'peer-exchange']
 nim_waku_disc_v5_enabled: true
+nim_waku_keep_alive: false
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
 nim_waku_node_key: '{{lookup("vault", "nodekeys", field=hostname)}}'
 

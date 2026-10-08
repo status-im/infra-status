@@ -19,6 +19,7 @@ nim_waku_protocols_enabled_map:
   staging: ['relay', 'store', 'store-sync']
   prod:    ['relay', 'store', 'legacy-store']
 nim_waku_disc_v5_enabled: true
+nim_waku_keep_alive: false
 nim_waku_dns4_domain_name: '{{ dns_entry }}'
 nim_waku_node_key: '{{lookup("vault", "nodekeys", field=hostname)}}'
 # Store Sync
