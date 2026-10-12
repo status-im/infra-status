@@ -24,6 +24,11 @@ postgres_ha_databases:
     user: 'nim-waku'
     pass: '{{lookup("vault", "database", field="db-password")}}'
 
+# Cap nim-waku queries so a slow store lookup cannot hold locks that
+# block hourly partition DDL and freeze the node (logos-delivery#4526).
+postgres_ha_init_script: |
+  ALTER ROLE "nim-waku" SET statement_timeout = '120s';
+
 # Avoid exceeding volume size with WAL log.
 postgres_ha_alter_system_settings: '{{ postgres_system_setting_default | combine(postgres_system_setting_stage[stage])}}'
 
