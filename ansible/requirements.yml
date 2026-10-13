@@ -34,4 +34,8 @@
 
 - name: infra-role-wazuh-agent
   src: git@github.com:status-im/infra-role-wazuh-agent.git
-  version: 83e1b9b7e949e4f63b353c2f8d7ada8b287480f5
+  version: 9832ffc08f7c1f050ccfe81b21c7fc127a14c6c9
+
+- name: infra-role-vault-pki
+  src: git@github.com:status-im/infra-role-vault-pki.git
+  version: ef29560043557e9c9537324659945ad09a0158a4
