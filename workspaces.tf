@@ -50,7 +50,7 @@ locals {
 
       store_db_do_type = "m-2vcpu-16gb"
       store_db_ac_type = "ecs.r6.large"
-      store_db_gc_type = "c2d-highmem-2"
+      store_db_gc_type = "e2-highmem-2"
 
       store_db_data_vol_size = 320
     }
